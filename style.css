@@ -69,10 +69,10 @@
   
   .button-container button {
     width: 100px;
-      margin-right: 10px;
-      text-align: center;
-      display: inline-block;
-      float: left;
+    margin-right: 10px;
+    text-align: center;
+    display: inline-block;
+    float: left;
     font-size:15px;
     background-color: #1e2835;
     border-color: #404853;
@@ -80,3 +80,22 @@
     background-image: linear-gradient(to bottom,rgba(246,246,246,.1)0%,rgba(30,40,53,0)66%);
     color: #fafafa;
   }
+
+  .notification-container {
+    margin-bottom: 20px;
+    
+  }
+
+  .notification {
+    display: none;
+    position: fixed;
+    left: 270px;
+    top: 140px;
+    background: #ff9a48;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+    margin-top: 40px;
+  }
+
+  
