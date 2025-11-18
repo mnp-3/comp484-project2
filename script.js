@@ -20,28 +20,39 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedTreatButton() {
       pet_info.happiness += 5 // Increase pet happiness
       pet_info.weight += 1 // Increase pet weight
-      pet_info.energy += 5
-      showNotification("Delicious");
+      pet_info.energy += 5 // Increase energy
+      animatePet(); //glow animation
+      showNotification("Yummy!"); //Pet notification
+      addToHistory(" ate a treat!"); //Activity log entry
       checkAndUpdatePetInfoInHtml();
     }
     
     function clickedPlayButton() {
       pet_info.happiness += 5 // Increase pet happiness
-      pet_info.weight -= 1// Decrease pet weight
-      pet_info.energy -= 5
+      pet_info.weight -= 1 // Decrease pet weight
+      pet_info.energy -= 5 //Decrease energy
+      animatePet(); //glow animation
+      showNotification("Woof! Woof!"); //Pet notification
+      addToHistory(" just played fetch!"); //Activity log entry
       checkAndUpdatePetInfoInHtml();
     }
     
     function clickedExerciseButton() {
       pet_info.happiness -=3 // Decrease pet happiness
       pet_info.weight -=2 // Decrease pet weight
-      pet_info.energy -= 5
+      pet_info.energy -= 5 // Decrease energy
+      animatePet(); //glow animation
+      showNotification("*panting*"); //Pet notification
+      addToHistory(" exercised for 5 minutes."); //Activity log entry
       checkAndUpdatePetInfoInHtml();
     }
 
     function clickedRestButton() {
-      pet_info.energy += 20
-      pet_info.happiness += 5 
+      pet_info.energy += 20 //Increase energy
+      pet_info.happiness += 5 //Increase happiness
+      animatePet(); //glow animation
+      showNotification("ZZZZZZZZ"); //Pet notification
+      addToHistory(" slept for 2 hours."); //Activity log entry
       checkAndUpdatePetInfoInHtml();
     }
   
@@ -51,9 +62,8 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
     
     function checkWeightAndHappinessBeforeUpdating() {
-      // Add conditional so if weight is lower than zero.
-      if (pet_info.weight < 0 ) pet_info.weight = 0;
-      if (pet_info.energy > 100 ) pet_info.energy = 100;
+      if (pet_info.weight < 0 ) pet_info.weight = 0; // Add conditional so if weight is lower than zero.
+      if (pet_info.energy > 100 ) pet_info.energy = 100; // Conditional so energy doesn't exceed 100%
     }
     
     // Updates your HTML with the current values in your pet_info object
@@ -67,7 +77,30 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function showNotification(message) {
       $('.notification').text(message)
     .fadeIn(200)
-    .delay(1000)
+    .delay(2000)
     .fadeOut(200);
+    }
+
+    /* .prepend() https://api.jquery.com/prepend/
+    Inserts the specified content as the first child of each element in the jQuery collection
+    Places new log entries at the top, so the most recent actions appear first
+    */
+    function addToHistory(actionText){
+      $(".history-log").prepend("<p>" + pet_info['name'] + actionText + "<p>");
+    }
+
+
+    /* .removeClass() https://api.jquery.com/removeClass/ 
+    Remove a single class or multiple classes from each element in the set of matched elements.
+    This method is often used with .addClass() to switch elements' classes from one to another
+    */
+    function animatePet() {
+      setTimeout(function() {
+        $(".pet-image").addClass("glow"); //adds glow effect 
+      });
+
+      setTimeout(function() {
+        $(".pet-image").removeClass("glow"); //removes glow effect after a second
+      }, 1000);
     }
   

@@ -83,7 +83,6 @@
 
   .notification-container {
     margin-bottom: 20px;
-    
   }
 
   .notification {
@@ -91,11 +90,25 @@
     position: fixed;
     left: 270px;
     top: 140px;
-    background: #ff9a48;
+    background: #ffb070;
     font-weight: bold;
     padding: 10px;
-    color: white;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
     margin-top: 40px;
   }
 
-  
+  .glow {
+    filter: drop-shadow(0 0 15px #ffd272);
+  }
+
+  .history-container {
+    margin-right: 10px;
+    text-align: left;
+    display: block;
+    clear: both;
+    max-width: 400px;
+    font-size:15px;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
