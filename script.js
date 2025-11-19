@@ -18,6 +18,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     var pet_info = {name:"Pumba", weight:18, happiness:80, energy:60};
   
     function clickedTreatButton() {
+      document.getElementById("burp-sound").play();
       pet_info.happiness += 5 // Increase pet happiness
       pet_info.weight += 1 // Increase pet weight
       pet_info.energy += 5 // Increase energy
@@ -28,6 +29,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
     
     function clickedPlayButton() {
+      document.getElementById("toy-sound").play();
       pet_info.happiness += 5 // Increase pet happiness
       pet_info.weight -= 1 // Decrease pet weight
       pet_info.energy -= 5 //Decrease energy
@@ -38,6 +40,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
     
     function clickedExerciseButton() {
+      document.getElementById("fart-sound").play();
       pet_info.happiness -=3 // Decrease pet happiness
       pet_info.weight -=2 // Decrease pet weight
       pet_info.energy -= 5 // Decrease energy
@@ -48,6 +51,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
 
     function clickedRestButton() {
+      document.getElementById("snore-sound").play();
       pet_info.energy += 20 //Increase energy
       pet_info.happiness += 5 //Increase happiness
       animatePet(); //glow animation
